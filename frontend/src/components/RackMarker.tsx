@@ -1,3 +1,4 @@
+import Konva from 'konva'
 import { Group, Rect, Text } from 'react-konva'
 
 interface Rack {
@@ -18,12 +19,16 @@ const W = 32
 const H = 24
 
 export default function RackMarker({ rack, onDragEnd, onSelect }: Props) {
+  function handleDragEnd(e: Konva.KonvaEventObject<DragEvent>) {
+    onDragEnd(rack.rack_id, e.target.x() + W / 2, e.target.y() + H / 2)
+  }
+
   return (
     <Group
       x={rack.x - W / 2}
       y={rack.y - H / 2}
       draggable
-      onDragEnd={e => onDragEnd(rack.rack_id, e.target.x() + W / 2, e.target.y() + H / 2)}
+      onDragEnd={handleDragEnd}
       onClick={() => onSelect(rack)}
     >
       <Rect

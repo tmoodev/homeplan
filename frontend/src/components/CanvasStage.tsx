@@ -24,7 +24,7 @@ interface Rack {
   y: number
   label: string
   is_primary: boolean
-  plan_id: string
+  plan_id?: string
 }
 
 interface Plan {
@@ -40,8 +40,8 @@ interface Props {
   calibrating: boolean
   onAPDragEnd: (apId: string, x: number, y: number) => void
   onRackDragEnd: (rackId: string, x: number, y: number) => void
-  onAPSelect: (ap: AP) => void
-  onRackSelect: (rack: Rack) => void
+  onAPSelect: (ap: unknown) => void
+  onRackSelect: (rack: unknown) => void
   onCalibrate: (scalePPF: number) => void
   onCancelCalibrate: () => void
   onStageClick: (x: number, y: number) => void

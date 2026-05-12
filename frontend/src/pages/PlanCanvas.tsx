@@ -272,7 +272,11 @@ export default function PlanCanvas() {
             calibrating={calibrating}
             onAPDragEnd={handleAPDragEnd}
             onRackDragEnd={handleRackDragEnd}
-            onAPSelect={ap => { setSelectedAP(ap); setCalibrating(false); setPlacingRack(false); setPlacingAP(false) }}
+            onAPSelect={ap => {
+        const full = aps.find(a => a.ap_id === (ap as { ap_id: string }).ap_id) ?? null
+        setSelectedAP(full)
+        setCalibrating(false); setPlacingRack(false); setPlacingAP(false)
+      }}
             onRackSelect={() => {}}
             onCalibrate={handleCalibrate}
             onCancelCalibrate={() => setCalibrating(false)}
