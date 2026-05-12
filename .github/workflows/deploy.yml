@@ -1,0 +1,49 @@
+name: Deploy to datatrav-demo-prod
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure AWS credentials (OIDC)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::712715586889:role/GitHubActionsDeployRole
+          aws-region: us-east-1
+
+      - name: Deploy via SSM
+        run: |
+          COMMAND_ID=$(aws ssm send-command \
+            --instance-ids "i-0aa8799631327ddc3" \
+            --document-name "AWS-RunShellScript" \
+            --parameters 'commands=["cd /opt/homeplan && git pull origin main && docker compose --env-file .env up -d --build"]' \
+            --query "Command.CommandId" \
+            --output text)
+
+          echo "SSM Command ID: $COMMAND_ID"
+
+          aws ssm wait command-executed \
+            --command-id "$COMMAND_ID" \
+            --instance-id "i-0aa8799631327ddc3"
+
+      - name: Health check
+        run: |
+          COMMAND_ID=$(aws ssm send-command \
+            --instance-ids "i-0aa8799631327ddc3" \
+            --document-name "AWS-RunShellScript" \
+            --parameters 'commands=["cd /opt/homeplan && docker compose ps homeplan-backend | grep -q Up && echo OK"]' \
+            --query "Command.CommandId" \
+            --output text)
+
+          aws ssm wait command-executed \
+            --command-id "$COMMAND_ID" \
+            --instance-id "i-0aa8799631327ddc3"
+
+          echo "Health check passed."

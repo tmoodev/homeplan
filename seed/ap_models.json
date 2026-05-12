@@ -1,0 +1,86 @@
+[
+  {
+    "manufacturer": "Ruckus",
+    "model": "R350",
+    "tier": "entry",
+    "max_coverage_ft": 20,
+    "notes": "Entry-level ceiling AP. Ideal for utility rooms, garages, mudrooms. Wi-Fi 6."
+  },
+  {
+    "manufacturer": "Ruckus",
+    "model": "R650",
+    "tier": "mid",
+    "max_coverage_ft": 25,
+    "notes": "Mid-tier ceiling AP. Standard choice for living spaces, bedrooms, offices. Wi-Fi 6."
+  },
+  {
+    "manufacturer": "Ruckus",
+    "model": "R750",
+    "tier": "high",
+    "max_coverage_ft": 30,
+    "notes": "High-performance ceiling AP. Best for media rooms, great rooms, high-density areas. Wi-Fi 6."
+  },
+  {
+    "manufacturer": "Ubiquiti",
+    "model": "U6 Lite",
+    "tier": "entry",
+    "max_coverage_ft": 18,
+    "notes": "Compact ceiling AP. Good for smaller rooms and budget-conscious deployments. Wi-Fi 6."
+  },
+  {
+    "manufacturer": "Ubiquiti",
+    "model": "U6 Pro",
+    "tier": "mid",
+    "max_coverage_ft": 25,
+    "notes": "Mid-tier ceiling AP. Popular for UniFi ecosystems. 6-stream Wi-Fi 6."
+  },
+  {
+    "manufacturer": "Ubiquiti",
+    "model": "U6 Enterprise",
+    "tier": "high",
+    "max_coverage_ft": 30,
+    "notes": "High-end ceiling AP with Wi-Fi 6E tri-band. Ideal for premium deployments."
+  },
+  {
+    "manufacturer": "Cisco Meraki",
+    "model": "MR36",
+    "tier": "entry",
+    "max_coverage_ft": 20,
+    "notes": "Cloud-managed ceiling AP. Good for clients with existing Meraki infrastructure. Wi-Fi 6."
+  },
+  {
+    "manufacturer": "Cisco Meraki",
+    "model": "MR46",
+    "tier": "mid",
+    "max_coverage_ft": 25,
+    "notes": "Mid-tier cloud-managed AP. Strong for mixed-use spaces. Wi-Fi 6."
+  },
+  {
+    "manufacturer": "Aruba Instant On",
+    "model": "AP11",
+    "tier": "entry",
+    "max_coverage_ft": 18,
+    "notes": "Entry-level ceiling AP. Compact form factor, easy setup. Wi-Fi 5."
+  },
+  {
+    "manufacturer": "Aruba Instant On",
+    "model": "AP22",
+    "tier": "mid",
+    "max_coverage_ft": 22,
+    "notes": "Mid-tier ceiling AP. Wi-Fi 6 with good indoor penetration. Cost-effective."
+  },
+  {
+    "manufacturer": "Aruba Instant On",
+    "model": "AP25",
+    "tier": "mid",
+    "max_coverage_ft": 24,
+    "notes": "Tri-radio mid-tier AP. Dedicated scanning radio. Wi-Fi 6."
+  },
+  {
+    "manufacturer": "Aruba Instant On",
+    "model": "AP32",
+    "tier": "high",
+    "max_coverage_ft": 28,
+    "notes": "High-end Wi-Fi 6E AP. 6GHz band support. Ideal for future-proof luxury builds."
+  }
+]

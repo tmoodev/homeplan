@@ -1,0 +1,17 @@
+services:
+  homeplan-backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    ports:
+      - "127.0.0.1:3903:8000"
+    env_file: .env
+    restart: always
+
+  homeplan-frontend:
+    build: ./frontend
+    ports:
+      - "127.0.0.1:3902:80"
+    depends_on:
+      - homeplan-backend
+    restart: always
